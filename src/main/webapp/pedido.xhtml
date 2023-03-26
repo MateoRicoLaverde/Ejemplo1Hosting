@@ -1,0 +1,263 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta charset="UTF-8"></meta>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <title>Pedidos</title>
+        <link href="css/internas.css" rel="stylesheet" type="text/css"/>
+        <script src="https://kit.fontawesome.com/bef1c1b97c.js" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"></link>
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"></link>
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+        <style type="text/css">
+
+            .frm{
+                width: 40%;
+                margin: auto;
+                padding: 0px;
+            }
+            .ul li{
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            form li + li {
+                margin-top: 1em;
+            }
+            .input, textarea {
+                font: 1em source serif variable;
+                color: #ffffff;
+                width: 100px;
+                box-sizing: border-box;
+
+            }
+            .col-md-4 {
+                flex: 0 0 auto;
+                width: 150%;
+            }
+            .z{
+                color: #FFCB0E;
+                width: 100px;
+            }
+            label {
+                display: inline-block;
+                width: 80%;
+                text-align: left;
+            }
+            .enviar {
+                background-color: #FFCB0E;
+                border-block-color:#FFCB0E;
+                width: 90px;
+            }
+            .frm{
+                width: 450px;
+                height: 300px;
+                margin-top: 0px;
+                padding: 0px 0px;
+                color: white;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+
+            }
+            .form-login h3{
+                margin: 0;
+                text-align: center;
+                height: 40px;
+                margin-bottom: 30px;
+                border-bottom: 1px solid;
+                font-size: 20px;
+            }
+
+            .button{
+                width: 100%;
+                height:40px;
+                background: #FFCB0E;
+                border: none;
+                color: white;
+                margin-bottom: 50px;
+            }
+            .frm p{
+                height: 40px;
+                text-align: center;
+                border-bottom: 1px solid;
+            }
+            .frm a{
+                color: white;
+                text-decoration: none;
+                font-size:14px;
+            }
+            .frm:hover{
+                text-decoration: underline;
+            }
+
+        </style> 
+        <nav class="navbar navbar-dark bg-warning">
+            <a class="btn btn-primary" href="smart_energy_group_sas.xhtml" role="button">Regresar</a>
+            <div class="dropdown">
+                <a style="color: white" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cerrar Sesion</a>
+                <div class="dropdown-menu text-center">
+                    <a ><img src="img/iconos/icono_usuario2.png" height="80" width="80"></img></a><br>                  
+                        <a>Usuario</a></br>
+                    <a>Ejemplo@gmail.com</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="smart_energy_group_sas.xhtml" class="dropdown-item">Salir</a>
+                </div>
+            </div> 
+        </nav>
+
+
+        <div class="row">
+            <div class="col" id="logo">
+                <span> <p align="left"><a href="smart_energy_group_sas.xhtml"><img src="img/logo/logo_color.png" height="100px" width="215px" id="logo1"/></a></p></span>
+            </div>
+
+            <div class="col"><form id="buscar" class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form></div>
+
+        </div>   
+
+
+
+
+
+
+        <div id="header">
+            <ul class="nav" Style="background:rgb(0, 0, 0)" align="center">
+                <li><a href="smart_energy_group_sas.html">Inicio</a></li>
+                <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="Inventario.html">Modulos</a>
+                    <ul class="dropdown-menu">
+                        <li>  <a class="dropdown-item" href="crear_producto.xhtml">Inventario</a></li>
+                        <li>  <a class="dropdown-item" href="clientes-proveedores.xhtml">Clientes y Proveedores</a></li>
+                        <li>  <a class="dropdown-item" href="CrearUsusario.xhtml">Usuarios</a></li>
+                        <li>   <a class="dropdown-item" href="#">Cartera</a></li>
+                        <li>   <a class="dropdown-item" href="#">Orden de compra</a>   </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Páginas Error</a>
+
+                    <ul class="dropdown-menu">
+                        <li class="fondo">  <a class="dropdown-item" href="error_403.html" target="_blank">Error 403</a></li>
+                        <li class="fondo"><a class="dropdown-item" href="error_404.html" target="_blank"> Error 404</a></li>
+                        <li class="fondo"> <a class="dropdown-item" href="error_500.html" target="_blank">Error 500</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="contactenos.html" target="_blank">Contacto</a>
+                    <ul class="dropdown-menu">
+                        <li class="fondo"><a href="pqrs.html" target="_blank">PQRS</a></li>
+                    </ul></li>
+            </ul>
+        </div>
+
+
+    </h:head>
+
+
+    <h:body >
+
+
+
+
+
+        <!--CONTENIDO-->
+        <div class="col-12" style="overflow:scroll; height: 900px">
+
+            <div>
+                <img src="img/page_title/clientes.jpg" alt=""/>
+            </div>
+
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-9">
+                        <h3>Pedidos</h3>
+                        <table id="t-all" class="table">
+                            <thead class="thead-light">
+                                <tr>
+
+                                    <th># pedido</th>
+                                    <th>Fecha</th>
+                                    <th>Dirección</th>
+                                    <th>Estado</th>
+                                    <th>Cliente</th>
+                                    <th class="hidden">EDITAR</th>
+                                    <th>ELIMINAR</th>
+                                </tr>
+                            </thead>
+                            <tbody class="thead-body">
+                                <c:forEach items="#{controladorPedido.getAll()}" var="pedido">
+                                    <tr>
+
+                                        <td>#{pedido.numPedido}</td>
+                                        <td> #{pedido.fecha}</td>  
+                                        <td>#{pedido.dirEnvio}</td>
+                                        <td>#{pedido.codEstPedido}</td>
+                                        <td>#{pedido.ndocClient}</td>
+                                        <td><h:form> <h:commandButton value="Editar" action="#{controladorPedido.selecUpdate(pedido)}"/>   </h:form></td>
+                                        <td><h:form> <h:commandButton value="Borrar" action="#{controladorPedido.delete(pedido)}"/>   </h:form></td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <div class="col-12 col-md-3">
+                        <h3>Crear Item</h3>
+                        <h:form>
+                            <div class="row">
+                                
+                                <div class="col-12">
+                                    <label>Fecha</label>
+                                    <input type="date" value="#{controladorPedido.pedido.fecha}" class="form-control"></input>
+                                </div>
+                                <div class="col-12 mt-2">
+                                    <label class="col-12">Dirección de envio</label>
+                                    <h:inputText value="#{controladorPedido.pedido.dirEnvio}" class="form-control"></h:inputText>
+                                </div>
+                                <div class="col-12">
+                                <label>estado</label>
+                                <h:selectOneMenu  value="#{controladorPedido.estadopedidoselect}"  class="form-select">
+                                    <f:selectItems value="#{controladorPedido.getAllEstadopedido()}" var="estadopedido" itemValue="#{estadopedido.codEstado}" itemLabel="#{estadopedido.nomEstado}"></f:selectItems>
+                    </h:selectOneMenu>
+                            </div>
+                                <div class="col-12">
+                                <label>Cliente</label>
+                                <h:selectOneMenu  value="#{controladorPedido.clientesSelect}"  class="form-select">
+                                    <f:selectItems value="#{controladorPedido.getAllusuario()}" var="cliente" itemValue="#{cliente.numDoc}" itemLabel="#{cliente.pape}"></f:selectItems>
+                    </h:selectOneMenu>
+                            </div>
+                                
+                                <div class="col-12 d-flex justify-content-center mt-3">
+                                    <h:commandButton action="#{controladorPedido.save()}" class="btn btn-outline-success" value="Guardar"></h:commandButton>
+                                </div>
+                            </div>
+                        </h:form>
+                       
+                    </div>
+
+                </div>
+            </div>     
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        </div>
+    </h:body>
+</html>
+

@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Inventario</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+    </h:head>
+    <h:body>
+<nav class="navbar navbar-dark bg-warning">
+            <a class="btn btn-primary" href="smart_energy_group_sas.xhtml" role="button">Regresar</a>
+            <div class="dropdown">
+                <a style="color: white" href="smart_energy_group_sas.xhtml" class="nav-link dropdown-toggle" data-toggle="dropdown">Cerrar Sesion</a>
+                <div class="dropdown-menu text-center">
+                    <a ><img src="img/iconos/icono_usuario2.png" height="80" width="80"></img></a><br>                  
+                        <a>Cartera</a></br>
+                    <a>Ejemplo@gmail.com</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="smart_energy_group_sas.xhtml" class="dropdown-item">Salir</a>
+                </div>
+            </div> 
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-9">
+                    <h3>Cartera</h3>
+       <table id="t-all" class="table">
+                            <thead class="thead-light">
+                                <tr>
+
+                                    <th>Codigo Cartera</th>
+                                    <th>Número de orden de cartera</th>
+                                    <th>Fecha de inicio</th>
+                                    <th>Fecha de fin</th>
+                                    <th>Estado de pago</th>
+                                    <th class="hidden">EDITAR</th>
+                    <th>ELIMINAR</th>
+                                </tr>
+                            </thead>
+                            <tbody class="thead-body">
+                                <c:forEach items="#{controladorCartera.all}" var="cartera">
+                                    <tr>
+
+                                        <td>#{cartera.codCartera}</td>
+                                        <td>#{cartera.numOrdenCartera}</td>  
+                                        <td>#{cartera.fecIni}</td>
+                                        <td>#{cartera.fecFin}</td>
+                                        <td>#{cartera.estadoPago}</td>
+                                        <td><h:form> <h:commandButton value="Editar" action="#{controladorCartera.selectUpddate(cartera)}"/>   </h:form></td>
+                                        <td><h:form> <h:commandButton value="Borrar" action="#{controladorCartera.delete(cartera)}"/>   </h:form></td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                </div>
+                <div class="col-12 col-md-3">
+                    <h3>Crear Nueva Factura</h3>
+                    <h:form>
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Codigo de Cartera</label>
+                                <h:inputText value="#{controladorCartera.cartera.codCartera}" class="form-control"></h:inputText>
+                            </div>
+                            <div class="col-12">
+                                <label>Orden de Entrada</label>
+                                <h:selectOneMenu id="numOrdenCartera" value="#{controladorCartera.ordenentradaSelect}" title="numOrdenCartera" required="true" requiredMessage="">
+                                    <f:selectItems value="#{controladorCartera.allOrdenEntrada}" var="tipodoc" itemValue="#{tipodoc.numOrdEnt}" itemLabel="#{tipodoc.numFactura}"/>
+                                    
+                    </h:selectOneMenu>
+                            </div>
+                            <div class="col-12">
+                                <label>Fecha Inicio</label>
+                                <h:inputText value="#{controladorCartera.cartera.fecIni}" class="form-control">
+                                                        <f:convertDateTime pattern="MM/dd/yyyy" /> </h:inputText>
+
+                            </div>
+                            <div class="col-12">
+                                <label>Fecha Fin</label>
+                                <h:inputText value="#{controladorCartera.cartera.fecFin}" class="form-control">
+                                                                                            <f:convertDateTime pattern="MM/dd/yyyy" /> </h:inputText>
+
+                            </div>
+                            <div class="col-12">
+                                <label>Estado pago/pendiente</label>
+                                <h:inputText value="#{controladorCartera.cartera.estadoPago}" class="form-control"></h:inputText>
+                            </div>
+                            <div class="col-12 d-flex justify-content-center mt-3">
+                                <h:commandButton action="#{controladorCartera.save()}" class="btn btn-outline-success" value="Guardar"></h:commandButton>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+
+            </div>
+        </div>     
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    </h:body>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script> 
+
+        <script>
+            $(document).ready(function () {
+                $('#t-all').DataTable({
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copy', 'csv', 'excel', 'pdf', 'print'
+                    ]
+                });
+            });</script>
+</html>
+
